@@ -1,0 +1,6 @@
+C:\Users\admin\NG2\C#\Parallel.For\bin\Debug\Parallel.For.exe.config
+C:\Users\admin\NG2\C#\Parallel.For\bin\Debug\Parallel.For.exe
+C:\Users\admin\NG2\C#\Parallel.For\bin\Debug\Parallel.For.pdb
+C:\Users\admin\NG2\C#\Parallel.For\obj\Debug\Parallel.For.csprojResolveAssemblyReference.cache
+C:\Users\admin\NG2\C#\Parallel.For\obj\Debug\Parallel.For.exe
+C:\Users\admin\NG2\C#\Parallel.For\obj\Debug\Parallel.For.pdb
