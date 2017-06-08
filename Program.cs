@@ -19,8 +19,30 @@ namespace Parallel_For
             //}
 
 
-            Operators.Execute();
-            new Task_Cancelation().Execute();
+            //Operators.Execute();
+            //new Task_Cancelation().Execute();
+
+            var tp = new Task_Pipeline();
+            var tasks=tp.Exexute();
+
+            while (tasks.Count() > 0)
+            {
+                var index = Task.WaitAny(tasks.ToArray());
+                var task = tasks[index];
+                tasks.RemoveAt(index);
+                try
+                {
+                    
+                    Console.WriteLine($"task #{task.Id} : {task.Result}");
+                   
+                }
+                catch (AggregateException AE)
+                {
+                    Console.WriteLine($"{AE.Flatten().InnerException.Message}");
+                }
+                
+             
+            }
 
 
             Console.Read();
