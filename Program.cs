@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Parallel_For
@@ -22,33 +23,46 @@ namespace Parallel_For
             //Operators.Execute();
             //new Task_Cancelation().Execute();
 
-            var tp = new Task_Pipeline();
-            var tasks=tp.Exexute();
+            // var tp = new Task_Pipeline();
+            //var tasks=tp.Exexute();
 
-            while (tasks.Count() > 0)
+            //while (tasks.Count() > 0)
+            //{
+            //    var index = Task.WaitAny(tasks.ToArray());
+            //    var task = tasks[index];
+            //    tasks.RemoveAt(index);
+            //    try
+            //    {
+
+            //        Console.WriteLine($"task #{task.Id} : Status: {task.Status} : {task.Result}");
+
+            //    }
+            //    catch (AggregateException AE)
+            //    {
+            //        Console.WriteLine($"{task.Id} : {task.Status} : {AE.Flatten().InnerException.Message}");
+            //    }
+            //    catch(Exception e)
+            //    {
+            //        Console.WriteLine(e.Message);
+            //    }
+
+
+            //}
+            //   Task.Factory.StartNew(null, TaskCreationOptions.PreferFairness);
+            //  ThreadPool.QueueUserWorkItem(new WaitCallback((a) => { }));
+
+            Parallel_Aggregation pa = new Parallel_Aggregation();
+            var t = Task.Factory.StartNew(() =>
             {
-                var index = Task.WaitAny(tasks.ToArray());
-                var task = tasks[index];
-                tasks.RemoveAt(index);
-                try
-                {
-                    
-                    Console.WriteLine($"task #{task.Id} : {task.Result}");
-                   
-                }
-                catch (AggregateException AE)
-                {
-                    Console.WriteLine($"{AE.Flatten().InnerException.Message}");
-                }
-                
-             
-            }
-
+                pa.Sequence.ForEach((seqItem) => { Console.WriteLine($"{seqItem}"); });
+            });
+            t.Wait();
+            Console.WriteLine("----------------Sum----------------");
+            Console.WriteLine(pa.Sum());
 
             Console.Read();
-            
-        }
 
+        }
 
     }
 }

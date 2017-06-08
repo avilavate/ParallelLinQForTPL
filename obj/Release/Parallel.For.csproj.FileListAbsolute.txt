@@ -3,3 +3,4 @@ C:\Users\admin\NG2\C#\Parallel.For\bin\Release\Parallel.For.exe
 C:\Users\admin\NG2\C#\Parallel.For\bin\Release\Parallel.For.pdb
 C:\Users\admin\NG2\C#\Parallel.For\obj\Release\Parallel.For.exe
 C:\Users\admin\NG2\C#\Parallel.For\obj\Release\Parallel.For.pdb
+C:\Users\admin\NG2\C#\Parallel.For\obj\Release\Parallel.For.csprojResolveAssemblyReference.cache

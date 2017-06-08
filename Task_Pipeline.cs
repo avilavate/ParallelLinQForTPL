@@ -11,7 +11,7 @@ namespace Parallel_For
         public List<Task<decimal>> Exexute()
         {
             List<Task<decimal>> Tasks = new List<Task<decimal>>();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Tasks.Add(Task.Factory.StartNew(this.Code));
             }
