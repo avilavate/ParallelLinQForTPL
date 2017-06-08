@@ -18,18 +18,23 @@ namespace Parallel_For
                 this.Sequence.Add(item);
             }
         }
-        public int Sum()
+        public Tuple<double, double> Sum()
         {
-            int result=0;
+            var result = 0.0;
+            int total = this.Sequence.Count();
+            double average = 0.0; var obj = new Object();
             Parallel.ForEach(
                 this.Sequence,
                 () => 0,
                 (x, loopState, partialResult) => { return x + partialResult; },
                 (partialResult) =>
                 {
+                    lock (obj) 
                     result += partialResult;
+                    average = result / total;
                 });
-            return result;
+            var tuple = new Tuple<double, double>(result, average);
+            return tuple;
         }
     }
 }
