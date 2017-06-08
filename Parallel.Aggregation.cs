@@ -29,12 +29,52 @@ namespace Parallel_For
                 (x, loopState, partialResult) => { return x + partialResult; },
                 (partialResult) =>
                 {
-                    lock (obj) 
-                    result += partialResult;
+                    lock (obj)
+                        result += partialResult;
                     average = result / total;
                 });
             var tuple = new Tuple<double, double>(result, average);
             return tuple;
         }
+        public Result PlinqSum()
+        {
+            var total = this.Sequence.Count();
+            var objResult = new Result();
+            var t_aggregate = Task.Factory.StartNew(() =>
+              {
+                  this.Sequence.AsParallel().Aggregate(
+                             new Result(),
+                             (a, b) =>
+                             {
+                                 objResult.Sum += b;
+                                 objResult.Avg += b;
+                                 return objResult;
+                             },
+                             (final) =>
+                             {
+                                 objResult.Sum = final.Sum;
+                                 objResult.Avg = final.Avg / total;
+                                 return objResult;
+                             });
+              }
+              );
+            t_aggregate.Wait();
+
+            return objResult;
+        }
+
+
+    }
+
+    internal class Result
+    {
+        public Result()
+        {
+            this.Sum = 0;
+            this.Avg = 0.0;
+        }
+
+        public double Avg { get; set; }
+        public int Sum { get; set; }
     }
 }

@@ -57,13 +57,17 @@ namespace Parallel_For
                 pa.Sequence.ForEach((seqItem) => { Console.WriteLine($"{seqItem}"); });
             });
             t.Wait();
-            Console.WriteLine("----------Sum---------Average-----------");
-            var result=pa.Sum();
-            Console.WriteLine($"{result.Item1, 10}  :  {result.Item2, 10}");
+            //Console.WriteLine("----------Sum---------Average-----------");
+            //var result=pa.Sum();
+            //Console.WriteLine($"{result.Item1, 10}  :  {result.Item2, 10}");
+
+            var result = pa.PlinqSum();
+            Console.WriteLine($"{result.Sum} : {result.Avg}");
 
             Console.Read();
 
         }
+
 
     }
 }
