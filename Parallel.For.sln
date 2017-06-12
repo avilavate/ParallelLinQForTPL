@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parallel.For", "Parallel.For.csproj", "{92409214-382B-4000-A7FE-29BAD12384F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futures", "..\Futures\Futures.csproj", "{D60A9DA0-5D2B-4223-922C-420FCB21EB0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipelines", "..\Pipelines\Pipelines.csproj", "{0EEC99A2-6EBB-4F6F-81F2-F98DE982687E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{92409214-382B-4000-A7FE-29BAD12384F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92409214-382B-4000-A7FE-29BAD12384F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92409214-382B-4000-A7FE-29BAD12384F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60A9DA0-5D2B-4223-922C-420FCB21EB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60A9DA0-5D2B-4223-922C-420FCB21EB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60A9DA0-5D2B-4223-922C-420FCB21EB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60A9DA0-5D2B-4223-922C-420FCB21EB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEC99A2-6EBB-4F6F-81F2-F98DE982687E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEC99A2-6EBB-4F6F-81F2-F98DE982687E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEC99A2-6EBB-4F6F-81F2-F98DE982687E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEC99A2-6EBB-4F6F-81F2-F98DE982687E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
